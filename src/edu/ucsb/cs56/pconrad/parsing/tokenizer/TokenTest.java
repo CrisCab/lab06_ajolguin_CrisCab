@@ -22,4 +22,42 @@ public class TokenTest {
 	assertFalse(new LParenToken().equals(new DivideToken()));
     }
 
+    /** New tests added to test new token classes */
+
+    @Test
+    public void testAllEqualsTokensAreEqual() {
+	assertEquals(new EqualsToken(), new EqualsToken());
+    }
+
+    @Test
+    public void testAllNotEqualsTokensAreEqual() {
+	assertEquals(new NotEqualsToken(), new NotEqualsToken());
+    }
+
+    @Test
+    public void testAllExponentOperatorTokensAreEqual() {
+	assertEquals(new ExponentOperatorToken(), new ExponentOperatorToken());
+    }
+
+    @Test
+    public void testAllGreaterThanOrEqualsTokensAreEqual() {
+	assertEquals(new GreaterThanOrEqualsToken(), new GreaterThanOrEqualsToken());
+    }
+
+    @Test
+    public void testAllGreaterThanTokensAreEqual() {
+	assertEquals(new GreaterThanToken(), new GreaterThanToken());
+    }
+    
+    @Test
+    public void testAllLessThanTokensAreEqual() {
+	assertEquals(new LessThanToken(), new LessThanToken());
+    }
+    
+    @Test
+    public void testAllLessThanOrEqualsTokenAreEqual() {
+	assertEquals(new LessThanOrEqualsToken(), new LessThanOrEqualsToken());
+    }
+    
+
 }

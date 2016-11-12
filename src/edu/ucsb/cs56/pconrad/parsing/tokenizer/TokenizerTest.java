@@ -198,5 +198,35 @@ public class TokenizerTest {
 		},
 		Tokenizer.tokenizeToArray("c"));
 	}
-    
+
+    /** new added tests */
+
+    @Test
+    public void testWhiteSpaceBeforeTokens() {
+	assertArrayEquals(new Token[] {
+		tf.makeIntToken("100"),
+		tf.makePlusToken(),
+		tf.makeLParenToken(),
+		tf.makeIntToken("3"),
+		tf.makeTimesToken(),
+		tf.makeIntToken("97"),
+		tf.makeRParenToken()
+	    },
+	    Tokenizer.tokenizeToArray("   100   + ( 3    *97)"));
+    }
+
+    @Test
+    public void testExponentOperatorToken() {
+	assertArrayEquals(new Token[] {
+		tf.makeIntToken("33"),
+		tf.makeExponentOperatorToken(),
+		tf.makeIntToken("2"),
+		tf.makeExponentOperatorToken(),
+		tf.makeIntToken("97")
+	    },
+	    Tokenizer.tokenizeToArray("    33 **    2    **97"));
+    }
+
 }
+
+	    

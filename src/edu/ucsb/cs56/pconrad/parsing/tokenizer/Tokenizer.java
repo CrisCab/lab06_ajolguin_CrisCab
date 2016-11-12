@@ -36,7 +36,14 @@ public class Tokenizer {
 	fsa.addState(4, s -> new TimesToken() );
 	fsa.addState(5, s -> new DivideToken() );
 	fsa.addState(6, s -> new LParenToken() );
-	fsa.addState(7, s -> new RParenToken());
+	fsa.addState(7, s -> new RParenToken() );
+	fsa.addState(9, s -> new EqualsToken() );
+	fsa.addState(11, s -> new NotEqualsToken() );
+	fsa.addState(12, s -> new LessThanToken() );
+	fsa.addState(13, s -> new LessThanOrEqualsToken() );
+	fsa.addState(14, s -> new GreaterThanToken() );
+	fsa.addState(15, s -> new GreaterThanOrEqualsToken() );
+	fsa.addState(16, s -> new ExponentOperatorToken() ); 
 
 	fsa.addTransition(' ',0,0);
 	fsa.addTransition('\t',0,0);
@@ -53,6 +60,15 @@ public class Tokenizer {
 	fsa.addTransition('/',0,5);
 	fsa.addTransition('(',0,6);
 	fsa.addTransition(')',0,7);
+	fsa.addTransition('=',0,8);
+	fsa.addTransition('=',8,9);
+	fsa.addTransition('!',0,10);
+	fsa.addTransition('=',10,11);
+	fsa.addTransition('<',0,12);
+	fsa.addTransition('=',12,13);
+	fsa.addTransition('>',0,14);
+	fsa.addTransition('=',14,15);
+	fsa.addTransition('*',4,16);
 
 	return fsa;
     }
