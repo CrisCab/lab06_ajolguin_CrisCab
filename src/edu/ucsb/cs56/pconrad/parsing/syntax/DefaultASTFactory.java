@@ -35,6 +35,37 @@ public class DefaultASTFactory implements ASTFactory {
         return new UnaryMinus(inner);
     }
 
+    // new nodes
+
+    public AST makeEqualsNode(final AST left, final AST right) {
+	return new Binop(left, Equals.EQUALS, right);
+    }
+
+    public AST makeNotEqualsNode(final AST left, final AST right) {
+	return new Binop(left, NotEquals.NOTEQUALS, right);
+    }
+
+    public AST makeLessThanNode(final AST left, final AST right) {
+	return new Binop(left, LessThan.LESSTHAN, right);
+    }
+
+    public AST makeLessThanOrEqualsNode(final AST left, final AST right) {
+	return new Binop(left, LessThanOrEquals.LESSTHANOREQUALS, right);
+    }
+
+    public AST makeGreaterThanNode(final AST left, final AST right) {
+	return new Binop(left, GreaterThan.GREATERTHAN, right);
+    }
+    
+    public AST makeGreaterThanOrEqualsNode(final AST left, final AST right) {
+	return new Binop(left, GreaterThanOrEquals.GREATERTHANOREQUALS, right);
+    }
+    
+    public AST makeExponentNode(final AST left, final AST right){
+	return new Binop(left, Exponent.EXPONENT, right);
+    }
+    
+
 
 } // DefaultASTFactory
 

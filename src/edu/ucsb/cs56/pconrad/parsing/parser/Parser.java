@@ -140,6 +140,12 @@ public class Parser {
 	return PARSE_ADDITIVE.parseExp(pos);
     }
     // END CODE FOR MULIPLICATIVE AND ADDITIVE EXPRESSIONS
+
+    //    private final ParseComparison PARSE_COMPARISON = new ParseComparison();
+    
+    //    private ParseResult<AST> parseComparisonExpression(final int pos) throws ParserException{
+    //	return PARSE_COMPARISON.parseExp(pos);
+    //}
     
     private ParseResult<AST> parseExpression(final int pos) throws ParserException {
 	return parseAdditiveExpression(pos);
