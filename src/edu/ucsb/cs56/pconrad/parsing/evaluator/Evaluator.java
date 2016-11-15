@@ -19,10 +19,48 @@ public class Evaluator {
 	    } else {
 		return left / right;
 	    }
-	} else {
-	    assert(false); // no other operations
-	    return 0; // unreachable
 	}
+	//CHANGES CHANGES CHANGES CHANGES CHANGES
+	else{
+	    if (operator instanceof Equals){
+		if(left == right){
+		    return 1;
+		}
+	    }else if (operator instanceof NotEquals){
+		if(left != right){
+		    return 1;
+		}
+	    } else if (operator instanceof LessThan){
+		if(left < right){
+		    return 1;
+		}
+	    } else if (operator instanceof LessThanOrEquals){
+		if(left <= right){
+		    return 1;
+		}
+	    } else if (operator instanceof GreaterThan){
+		if(left > right){
+		    return 1;
+		}
+	    } else if (operator instanceof GreaterThanOrEquals){
+		if(left >= right){
+		    return 1;
+		}
+	    } else if (operator instanceof Exponent){
+		int x = left;
+		for(int i = 1; i < right; i++){
+		    x *= left; 
+		}
+		return x;
+		//return (left ** right);
+	    } else{
+		assert(false); // no other operations
+		return 0; // unreachable
+	    }
+	}
+	assert(false);
+	return 0;
+
     } // evaluate
 
     public static int evaluate(final AST expression)
